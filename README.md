@@ -1,17 +1,44 @@
-# a1_2_flutter_cifo
+# Name Generator
 
-A new Flutter project.
+A Flutter app that generates random person names. The list grows as you scroll, with no upper limit.
 
-## Getting Started
+Built for Activity 1.2 of *Introducció a la programació amb Flutter* (Desenvolupament d'Aplicacions mòbils per iOS i Android amb Flutter).
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Infinite-scrolling list of random full names, generated with the `random_name_generator` package (Catalonia zone)
+- Alternating row colours
+- Tap a name to show it in a SnackBar. Tapping again replaces the previous SnackBar.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Requirements
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- Visual Studio Code (or any editor with Flutter support)
+- One of: a physical Android or iOS device in developer mode, the iOS Simulator (requires Xcode), or an Android Emulator (requires Android Studio)
+
+## Getting started
+
+```bash
+git clone <repository-url>
+cd a1_2_flutter_cifo
+flutter pub get
+flutter run
+```
+
+## Project structure
+
+```
+lib/
+├── main.dart          # App entry point: MaterialApp and Scaffold
+└── people_list.dart   # StatefulWidget that holds the name list and scroll logic
+```
+
+## How it works
+
+- `_suggestions` stores the generated names. It lives in the `State` object, so hot reload keeps the same names. A hot restart generates a new list.
+- A `ScrollController` listens for scrolling. When the user is within 200 px of the bottom, 30 more names are added and the list rebuilds.
+- `ListView.separated` draws a `Divider` between rows.
+
+## Dependencies
+
+- [random_name_generator](https://pub.dev/packages/random_name_generator) `^1.5.0`
