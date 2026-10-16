@@ -19,7 +19,7 @@ Built for Activity 1.2 of *Introducció a la programació amb Flutter* (Desenvol
 ## Getting started
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/BfknR/a1_2_flutter_cifo)
 cd a1_2_flutter_cifo
 flutter pub get
 flutter run
